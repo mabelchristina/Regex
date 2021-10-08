@@ -9,6 +9,7 @@ namespace RegexDemo
     {
         const string NAME = "^[A-Z]{1}[a-z]{3,}$";
         const string EMAIL = "^[A-Z0-9a-z]{1,}([.#$^_-][A-Za-z0-9]+)?[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$";
+        const string MOBILE_NUMBER = "^[0-9]{2}[ ]{1}[6-9]{1}[0-9]{9}$";
         public void FirstNameChecker(string firstname)
         {
             if (Regex.IsMatch(firstname, NAME))
@@ -30,12 +31,22 @@ namespace RegexDemo
         }
         public void EmailValidation(string email)
         {
-            if (Regex.IsMatch(email,EMAIL))
+            if (Regex.IsMatch(email, EMAIL))
             {
                 Console.WriteLine("Email is validated");
                 return;
             }
             Console.WriteLine("Email is not validated");
         }
+        public void PhoneNumberValidation(string mobileNumber)
+        {
+            if (Regex.IsMatch(mobileNumber, MOBILE_NUMBER))
+            {
+                Console.WriteLine("Mobile number is validated");
+                return;
+            }
+            Console.WriteLine("Mobile number is not validated");
+        }
     }
 }
+
