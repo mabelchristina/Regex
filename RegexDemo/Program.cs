@@ -10,7 +10,7 @@ namespace RegexDemo
             bool isExit = false;
             while(!isExit)
             {
-                Console.WriteLine("choose an option to validate \n 1.First Name Validation\n2.Last Name Validation\n");
+                Console.WriteLine("choose an option to validate \n 1.First Name Validation\n2.Last Name Validation\n3.Email Validation");
                 int option =Convert.ToInt32( Console.ReadLine());
                 switch(option)
                 {
@@ -20,6 +20,10 @@ namespace RegexDemo
                     case 2:
                         regexDemonstration.LastNameChecker("Christina");
                         break;
+                    case 3:
+                        regexDemonstration.EmailValidation("mabelchristina@bridgelabz.com");
+                        break;
+
 
                 }
 
