@@ -10,8 +10,8 @@ namespace RegexDemo
             bool isExit = false;
             while(!isExit)
             {
-                Console.WriteLine("choose an option to validate \n 1.First Name Validation\n2.Last Name Validation\n3.Email Validation\n" +
-                    "4.Mobile number validation\n");
+                Console.WriteLine("choose an option to validate \n 1.First Name Validation\n2.Last Name Validation\n" +
+                    "3.Email Validation\n4.Mobile number validation\n5.Password validation\n");
                 int option =Convert.ToInt32( Console.ReadLine());
                 switch(option)
                 {
@@ -22,13 +22,14 @@ namespace RegexDemo
                         regexDemonstration.LastNameChecker("Christina");
                         break;
                     case 3:
-                        regexDemonstration.EmailValidation("mabelchristina@bridgelabz.com");
+                        regexDemonstration.EmailValidation("abc@%*.com");
                         break;
                     case 4:
                         regexDemonstration.PhoneNumberValidation("91 8553635345");
                         break;
-
-
+                    case 5:
+                        regexDemonstration.PasswordValidation("wdkmewfk@!#@!");
+                        break;
                 }
 
             }
