@@ -11,7 +11,7 @@ namespace RegexDemo
             while(!isExit)
             {
                 Console.WriteLine("choose an option to validate \n 1.First Name Validation\n2.Last Name Validation\n" +
-                    "3.Email Validation\n4.Mobile number validation\n5.Password validation\n");
+                    "3.Email Validation\n4.Mobile number validation\n5.Password validation\n6.Password with atleast one UpperCase Letter");
                 int option =Convert.ToInt32( Console.ReadLine());
                 switch(option)
                 {
@@ -30,6 +30,10 @@ namespace RegexDemo
                     case 5:
                         regexDemonstration.PasswordValidation("wdkmewfk@!#@!");
                         break;
+                    case 6:
+                        regexDemonstration.PasswordValidation("Aokrw");
+                        break;
+
                 }
 
             }
