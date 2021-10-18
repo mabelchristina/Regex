@@ -14,10 +14,7 @@ namespace RegexDemo
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            throw new CustomException(CustomException.ExceptionType.INVALID_ENTRY, "Invalid Input");
         }
     }
 }
