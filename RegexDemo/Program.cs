@@ -7,48 +7,26 @@ namespace RegexDemo
     {
         static void Main(string[] args)
         {
-            RegexDemonstration regexDemonstration = new RegexDemonstration();
-            string emailsFile= @"D:\my git\Regex\RegexDemo\Email.txt";
-            bool isExit = false;
-            while(!isExit)
-            {
-                Console.WriteLine("choose an option to validate \n 1.First Name Validation\n2.Last Name Validation\n" +
-                    "3.Email Validation\n4.Mobile number validation\n5.Password validation\n" +
-                    "6.Password with atleast one UpperCase Letter\n7.Password with One special character\n");
-                int option =Convert.ToInt32( Console.ReadLine());
-                switch(option)
-                {
-                    case 1:
-                        regexDemonstration.FirstNameChecker("Mabel");
-                        break;
-                    case 2:
-                        regexDemonstration.LastNameChecker("Christina");
-                        break;
-                    case 3:
-                        string[] validEmailList = File.ReadAllText(emailsFile).Split("\n")[0].Split(",");
-                        foreach (string email in validEmailList)
-                        {
-                            Console.Write($"\n{email} - ");
-                            regexDemonstration.EmailValidation(email);
-                        }
-                        break;
-                    case 4:
-                        regexDemonstration.PhoneNumberValidation("91 8553635345");
-                        break;
-                    case 5:
-                        regexDemonstration.PasswordValidation("wdkmewfk@!#@!");
-                        break;
-                    case 6:
-                        regexDemonstration.PasswordValidation("Aokfefrw");
-                        break;
-                    case 7:
-                        regexDemonstration.PasswordValidation("okAmkef");
-                        break;
-
-
-                }
-
-            }
+            Validate validate = new Validate();
+            const string NAME = "^[A-Z]{1}[a-z]{3,}$";
+            const string EMAIL = "^[A-Z0-9a-z]{1,}([.#$^_-][A-Za-z0-9]+)?[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$";
+            const string MOBILE_NUMBER = "^[0-9]{2}[ ]{1}[6-9]{1}[0-9]{9}$";
+            const string PASSWORD = "[A-Z]+.{8,}?";//"^(?=.*[A-Z]).{8,}$";
+            Console.WriteLine("Enter First Name: ");
+            string firstName = Console.ReadLine();
+            Console.WriteLine(validate.checkIfValid(NAME, firstName));
+            Console.WriteLine("Enter Last Name : ");
+            string lastName = Console.ReadLine();
+            Console.WriteLine(validate.checkIfValid(NAME, lastName));
+            Console.WriteLine("Enter Email ID : ");
+            string emailID = Console.ReadLine();
+            Console.WriteLine(validate.checkIfValid(EMAIL, emailID));
+            Console.WriteLine("Enter Mobile Number : ");
+            string mobileNum = Console.ReadLine();
+            Console.WriteLine(validate.checkIfValid(MOBILE_NUMBER, mobileNum));
+            Console.WriteLine("enter password : ");
+            string password = Console.ReadLine();
+            Console.WriteLine(validate.checkIfValid(PASSWORD, password));
         }
     }
 }
