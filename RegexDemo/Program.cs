@@ -7,26 +7,38 @@ namespace RegexDemo
     {
         static void Main(string[] args)
         {
-            Validate validate = new Validate();
-            const string NAME = "^[A-Z]{1}[a-z]{3,}$";
-            const string EMAIL = "^[A-Z0-9a-z]{1,}([.#$^_-][A-Za-z0-9]+)?[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$";
-            const string MOBILE_NUMBER = "^[0-9]{2}[ ]{1}[6-9]{1}[0-9]{9}$";
-            const string PASSWORD = "[A-Z]+.{8,}?";//"^(?=.*[A-Z]).{8,}$";
-            Console.WriteLine("Enter First Name: ");
-            string firstName = Console.ReadLine();
-            Console.WriteLine(validate.checkIfValid(NAME, firstName));
-            Console.WriteLine("Enter Last Name : ");
-            string lastName = Console.ReadLine();
-            Console.WriteLine(validate.checkIfValid(NAME, lastName));
-            Console.WriteLine("Enter Email ID : ");
-            string emailID = Console.ReadLine();
-            Console.WriteLine(validate.checkIfValid(EMAIL, emailID));
-            Console.WriteLine("Enter Mobile Number : ");
-            string mobileNum = Console.ReadLine();
-            Console.WriteLine(validate.checkIfValid(MOBILE_NUMBER, mobileNum));
-            Console.WriteLine("enter password : ");
-            string password = Console.ReadLine();
-            Console.WriteLine(validate.checkIfValid(PASSWORD, password));
+            UserRegistrationDemo userRegistrationDemo = new UserRegistrationDemo();
+            Console.WriteLine("Name To Enter");
+            string Name = Console.ReadLine();
+            Console.WriteLine("Last Name To Enter");
+            string LastName = Console.ReadLine();
+            Console.WriteLine("Email To Enter");
+            string Email = Console.ReadLine();
+            Console.WriteLine("Number to Enter using Country Code");
+            string Number = Console.ReadLine();
+            Console.WriteLine("Password To Enter ");
+            Console.WriteLine("1 . Must Have Atleat 8 character" + "\n" + "2 . One Character Should be in upper case" + "\n" + "3 . One character Should Be in Lower Case " + "\n" + "4 . One Special Character " + "\n" + "5. Should Have One Numberic Value");
+            string Password = Console.ReadLine();
+            if (userRegistrationDemo.ToCheckName(Name) == true)
+                Console.WriteLine("Valid Input");
+            else
+                Console.WriteLine("InValid Input");
+            if (userRegistrationDemo.ToCheckLastName(LastName) == true)
+                Console.WriteLine("Valid Input");
+            else
+                Console.WriteLine("InValid Input");
+            if (userRegistrationDemo.ToCheckMail(Email) == true)
+                Console.WriteLine("Valid Input");
+            else
+                Console.WriteLine("InValid Input");
+            if (userRegistrationDemo.ToCheckNumber(Number) == true)
+                Console.WriteLine("Vaild Input");
+            else
+                Console.WriteLine("Invalid Input");
+            if (userRegistrationDemo.ToCheckPassword(Password) == true)
+                Console.WriteLine("Vaild Input");
+            else
+                Console.WriteLine("Invalid Input");
         }
     }
 }
