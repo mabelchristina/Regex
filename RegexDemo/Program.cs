@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace RegexDemo
 {
@@ -7,6 +8,7 @@ namespace RegexDemo
         static void Main(string[] args)
         {
             RegexDemonstration regexDemonstration = new RegexDemonstration();
+            string emailsFile= @"D:\my git\Regex\RegexDemo\Email.txt";
             bool isExit = false;
             while(!isExit)
             {
@@ -23,7 +25,12 @@ namespace RegexDemo
                         regexDemonstration.LastNameChecker("Christina");
                         break;
                     case 3:
-                        regexDemonstration.EmailValidation("abc@%*.com");
+                        string[] validEmailList = File.ReadAllText(emailsFile).Split("\n")[0].Split(",");
+                        foreach (string email in validEmailList)
+                        {
+                            Console.Write($"\n{email} - ");
+                            regexDemonstration.EmailValidation(email);
+                        }
                         break;
                     case 4:
                         regexDemonstration.PhoneNumberValidation("91 8553635345");
@@ -35,7 +42,7 @@ namespace RegexDemo
                         regexDemonstration.PasswordValidation("Aokfefrw");
                         break;
                     case 7:
-                        regexDemonstration.PasswordValidation("o&krw");
+                        regexDemonstration.PasswordValidation("okAmkef");
                         break;
 
 
